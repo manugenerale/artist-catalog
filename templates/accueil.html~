@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{LANGUAGE_CODE}}" xml:lang="{{LANGUAGE_CODE}}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+{% load i18n %}
+{% load static %}
+
+<head>
+	<title> Manufacture générale : studio de création et de production digitale </title>
+	<link rel="stylesheet" type="text/css" media="all" href="/static/css/style.css" />
+</head>
+
+<body>
+
+{% block content %}
+
+<div id="content">
+
+	<h1> Bienvenue sur La Manufacture Générale ! </h1></br >
+
+</div>
+{% endblock %}
+
+{% block footer %}<div id="footer">
+	<ul class='listAcc'>
+	    <li><a href="http://127.0.0.1:8000/oeuvre/"> Liste Oeuvres </a></li>
+	    <li><a href="http://127.0.0.1:8000/artiste/"> Liste Artistes </a></li></br>
+	<ul>
+</div>{% endblock %}

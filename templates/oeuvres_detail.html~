@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{LANGUAGE_CODE}}" xml:lang="{{LANGUAGE_CODE}}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+{% load i18n %}
+{% load static %}
+
+
+<head>
+	<title> Manufacture générale : studio de création et de production digitale </title>
+	<link rel="stylesheet" type="text/css" media="all" href="/static/css/style.css" />
+</head>
+
+
+<body>
+{% block content %}
+
+<div id="content">
+
+	<h1> {{ oeuvre.titre }} </h1></br >
+	{{ oeuvre.description }}</br ></br >
+
+	<img src="{{ oeuvre.url_oeuvre.url }}" alt="{{ oeuvre.url_oeuvre }}" >
+	
+	{% for unArtiste in artiste %}
+		{% if unArtiste.pk == oeuvre.artiste.pk %}
+			<p>{{ unArtiste.prenom_artiste }} {{ unArtiste }}</p>
+			<p><a href="http://127.0.0.1:8000/artiste/{{unArtiste.pk}}">En savoir plus sur l'Auteur</a></p>
+		{% endif %}
+	{% endfor %}
+	<p> Dimension : {{ oeuvre.dimension }} || Type oeuvre : {{ oeuvre.type_oeuvre }} </p>
+
+	<p> Dimension en pixels : {{ oeuvre.url_oeuvre.width }}x{{ oeuvre.url_oeuvre.height }} </p>
+		
+	</br ></br >
+
+</div>
+{% endblock %}
+
+{% block footer %}<div id="footer">
+	<ul class='listAcc'>
+	    <li><a href="http://127.0.0.1:8000/oeuvre/"> Liste Oeuvres </a></li>
+	    <li><a href="http://127.0.0.1:8000/artiste/"> Liste Artistes </a></li>
+	    <li><a href="http://127.0.0.1:8000/"> Retour Accueil </a></li>
+	<ul>
+</div>{% endblock %}

@@ -1,0 +1,116 @@
+[
+{
+  "model": "artiste.artiste",
+  "pk": 1,
+  "fields": {
+    "nom_artiste": "Picasso",
+    "prenom_artiste": "Pablo",
+    "biographie": "Pablo Ruiz Picasso, n\u00e9 \u00e0 Malaga le 25 octobre 1881 et mort le 8 avril 1973 \u00e0 Mougins, est un peintre, dessinateur et sculpteur espagnol ayant pass\u00e9 l'essentiel de sa vie en France.",
+    "caracteristiques": "Artiste utilisant tous les supports pour son travail, il est consid\u00e9r\u00e9 comme le fondateur du cubisme avec Georges Braque et un compagnon d'art du surr\u00e9alisme. Il est l'un des plus importants artistes du xxe si\u00e8cle, tant par ses apports techniques et formels que par ses prises de positions politiques",
+    "url_image": "artiste/static/img/pICASSO-RETRATO.jpg",
+    "description": "vfdvdksuhie fyguygfyue guiy fgz yuikeu ryirgeui gyygey gui Pablo Ruiz Picasso, n\u00e9 \u00e0 Malaga le 25 octobre 1881 et mort le 8 avril 1973 \u00e0 Mougins, est un peintre, dessinateur et sculpteur espagnol ayant pass\u00e9 l'essentiel de sa vie en France."
+  }
+},
+{
+  "model": "artiste.artiste",
+  "pk": 2,
+  "fields": {
+    "nom_artiste": "Dali",
+    "prenom_artiste": "Salvador",
+    "biographie": "Salvador Dal\u00ed, de son nom complet Salvador Domingo Felipe Jacinto Dal\u00ed i Dom\u00e8nech, marquis de Dal\u00ed de P\u00fabol, n\u00e9 \u00e0 Figueras le 11 mai 1904, et mort dans la m\u00eame ville, le 23 janvier 1989, est un peintre, sculpteur, graveur, sc\u00e9nariste et \u00e9crivain catalan de nationalit\u00e9 espagnole. Il est consid\u00e9r\u00e9 comme l'un de",
+    "caracteristiques": "La sympathie de Dal\u00ed pour Francisco Franco, son excentricit\u00e9 et ses \u0153uvres tardives font de l'analyse de son \u0153uvre comme de sa personne des th\u00e8mes difficiles et sujets \u00e0 controverses.",
+    "url_image": "artiste/static/img/467px-Salvador_Dal\u00ed_1939_x6qtGVO.jpg",
+    "description": "vfdvdksuhie fyguygfyue guiy fgz yuikeu ryirgeui gyygey gui Pablo Ruiz Picasso, n\u00e9 \u00e0 Malaga le 25 octobre 1881 et mort le 8 avril 1973 \u00e0 Mougins, est un peintre, dessinateur et sculpteur espagnol ayant pass\u00e9 l'essentiel de sa vie en France."
+  }
+},
+{
+  "model": "artiste.artiste",
+  "pk": 3,
+  "fields": {
+    "nom_artiste": "van Gogh",
+    "prenom_artiste": "Vincent",
+    "biographie": "Vincent Willem van Gogh, n\u00e9 le 30 mars 1853 \u00e0 Groot-Zundert et mort le 29 juillet 1890 \u00e0 Auvers-sur-Oise, est un peintre et dessinateur n\u00e9erlandais.Vincent Willem van Gogh, n\u00e9 le 30 mars 1853 \u00e0 Groot-Zundert et mort le 29 juillet 1890 \u00e0 Auvers-sur-Oise, est un peintre et dessinateur n\u00e9erlandais. Test descript",
+    "caracteristiques": "Peu connu dans les ann\u00e9es 1890, Van Gogh n'a \u00e9t\u00e9 remarqu\u00e9 que par un petit nombre d'auteurs et de peintres en France, aux Pays-Bas, en Belgique et au Danemark. Cependant, dans les ann\u00e9es 1930, ses \u0153uvres attirent cent vingt mille personnes \u00e0 une exposition du Museum of Modern Art, \u00e0 New York. Il est aujourd'hui consid\u00e9r\u00e9 comme l'un des plus grands artistes de tous les temps.",
+    "url_image": "artiste/static/img/van_0.png",
+    "description": "vfdvdksuhie fyguygfyue guiy fgz yuikeu ryirgeui gyygey gui Pablo Ruiz Picasso, n\u00e9 \u00e0 Malaga le 25 octobre 1881 et mort le 8 avril 1973 \u00e0 Mougins, est un peintre, dessinateur et sculpteur espagnol ayant pass\u00e9 l'essentiel de sa vie en France."
+  }
+},
+{
+  "model": "artiste.oeuvre",
+  "pk": 1,
+  "fields": {
+    "titre": "Guernica",
+    "description": "blablabla blablablablablabla blablablablablablablablabla blablablablablablablablablablablablablablabla blablablablablabla.",
+    "url_oeuvre": "artiste/static/img/guernica.jpg",
+    "artiste": 1,
+    "dimension": "3,49 m x 7,77 m",
+    "type_oeuvre": "Huile sur toile",
+    "date": "12/12/2019"
+  }
+},
+{
+  "model": "artiste.oeuvre",
+  "pk": 2,
+  "fields": {
+    "titre": "La persistance de la m\u00e9moire",
+    "description": "blablabla blablablablablabla blablablablablablablablabla blablablablablablablablablablablablablablabla blablablablablabla.",
+    "url_oeuvre": "artiste/static/img/la-persistance-de-la-m\u00e9moire1.jpg",
+    "artiste": 2,
+    "dimension": "24 \u00d7 33 cm",
+    "type_oeuvre": "Huile sur toile",
+    "date": "12/12/2019"
+  }
+},
+{
+  "model": "artiste.oeuvre",
+  "pk": 3,
+  "fields": {
+    "titre": "Le visage de la guerre",
+    "description": "blablabla blablablablablabla blablablablablablablablabla blablablablablablablablablablablablablablabla blablablablablabla.",
+    "url_oeuvre": "artiste/static/img/salvador-dali-visage-guerre.jpg",
+    "artiste": 2,
+    "dimension": "64 \u00d7 79 cm",
+    "type_oeuvre": "Huile sur toile",
+    "date": "12/12/2019"
+  }
+},
+{
+  "model": "artiste.oeuvre",
+  "pk": 4,
+  "fields": {
+    "titre": "Le cri",
+    "description": "blablabla blablablablablabla blablablablablablablablabla blablablablablablablablablablablablablablabla blablablablablabla.",
+    "url_oeuvre": "artiste/static/img/653.jpg",
+    "artiste": 3,
+    "dimension": "91 \u00d7 73,5 cm",
+    "type_oeuvre": "Tempera sur carton",
+    "date": "12/12/2019"
+  }
+},
+{
+  "model": "artiste.oeuvre",
+  "pk": 5,
+  "fields": {
+    "titre": "La nuit etoil\u00e9e",
+    "description": "blablabla blablablablablabla blablablablablablablablabla blablablablablablablablablablablablablablabla blablablablablabla.",
+    "url_oeuvre": "artiste/static/img/original.37250.jpg",
+    "artiste": 3,
+    "dimension": "73 \u00d7 92 cm",
+    "type_oeuvre": "Huile sur toile",
+    "date": "12/12/2019"
+  }
+},
+{
+  "model": "artiste.oeuvre",
+  "pk": 6,
+  "fields": {
+    "titre": "GOKU",
+    "description": "The Saiyan, The Super Saiyan, The Super Saiyan 2, The Gogeta",
+    "url_oeuvre": "artiste/static/img/Goku_Genkidama.jpg",
+    "artiste": 3,
+    "dimension": "4 \u00d7 3 m",
+    "type_oeuvre": "Image png",
+    "date": "12/12/2020"
+  }
+}
+]

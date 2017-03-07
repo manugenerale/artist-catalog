@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/artiste/static/fonts/css/font-awesome.min.css">
+    <link href="/static/artiste/static/css/style-page-artiste.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/artiste/static/css/style-liste-oeuvre.css" />
+    <script src="/static/artiste/static/js/modernizr-custom.js"></script>
+
+    <link rel="stylesheet" href="/static/artiste/static/fonts/css/font-awesome.min.css">    
+
+    <style>
+    #panorama {
+        width: 100%;
+        height: 600px;
+    }
+    </style>
+
+{% endblock %}
+{% block content %}
+<div class="artiste-detail">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12 col-md-12 col-lg-12">
+				<h1 class="texte-artiste">{{ artiste.prenom_artiste }} {{ artiste }}</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-md-12 col-lg-12">
+
+				<h2 class="texte-artiste">Sa vie</h2>
+				<p class="texte-artiste-p">{{ artiste.biographie }}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-md-6 col-lg-6"><img src="{{ artiste.url_image.url }}" alt"{{ artiste.prenom_artiste }} {{ artiste.nom_artiste }}"/></div>
+			<div class="col-sm-12 col-md-6 col-lg-6">
+			<h2 class="texte-artiste">Ses caractéristiques</h2>
+			<p class="texte-artiste-p">{{ artiste.caracteristiques }}</p>
+				
+			</div>
+		</div>
+
+	</div>
+	
+	<div class="demo-2">
+		
+		<div class="container">
+			<div class="content">
+				<div class="grid">
+					{% for oeuvre in oeuvres %}
+					{% if artiste.pk == oeuvre.artiste.pk %}
+
+					<div class="grid__item" data-size="{{ oeuvre.width }}x{{ oeuvre.height }}"> <!-- dimension image(affichage lien) -->
+						<a href="/static/{{ oeuvre.url_oeuvre.url }}" class="img-wrap"><img src="/static/{{ oeuvre.url_oeuvre.url }}" alt="/static/{{ oeuvre.url_oeuvre }}" />
+							<div class="description description--grid">
+								<h3>{{ oeuvre.titre }}</h3>
+								<p>{{ oeuvre.description }}</p>
+								<div class="details">
+									<ul>	
+										<li><i class="fa fa-user" aria-hidden="true"></i></i><span>{{ artiste.prenom_artiste }} {{ artiste }}</span></li>
+										<li><i class="fa fa-arrows" aria-hidden="true"></i><span>{{ oeuvre.dimension }}</span></li>
+										<li><i class="fa fa-calendar" aria-hidden="true"></i><span>{{ oeuvre.date }}</span></li>
+										<li><i class="fa fa-info-circle" aria-hidden="true"></i><span>{{ oeuvre.type_oeuvre }}</span></li>
+	
+									</ul>
+								</div>
+							</div>
+						</a>
+					</div>
+					{% endif %}
+					{% endfor %}
+				</div>
+				<!-- /grid -->
+				<div class="preview">
+					<button class="action action--close"><i class="fa fa-times"></i><span class="text-hidden">Close</span></button>
+					<div class="description description--preview"></div>
+				</div>
+				<!-- /preview -->
+			</div>
+		</div>
+		<!-- /container -->
+
+		<script src="/static/artiste/static/js/imagesloaded.pkgd.min.js"></script>
+		<script src="/static/artiste/static/js/masonry.pkgd.min.js"></script>
+		<script src="/static/artiste/static/js/classie.js"></script>
+		<script src="/static/artiste/static/js/main.js"></script>
+		<script>
+			(function() {
+				var support = { transitions: Modernizr.csstransitions },
+					// transition end event name
+					transEndEventNames = { 'WebkitTransition': 'webkitTransitionEnd', 'MozTransition': 'transitionend', 'OTransition': 'oTransitionEnd', 'msTransition': 'MSTransitionEnd', 'transition': 'transitionend' },
+					transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
+					onEndTransition = function( el, callback ) {
+						var onEndCallbackFn = function( ev ) {
+							if( support.transitions ) {
+								if( ev.target != this ) return;
+								this.removeEventListener( transEndEventName, onEndCallbackFn );
+							}
+							if( callback && typeof callback === 'function' ) { callback.call(this); }
+						};
+						if( support.transitions ) {
+							el.addEventListener( transEndEventName, onEndCallbackFn );
+						}
+						else {
+							onEndCallbackFn();
+						}
+					};
+
+				new GridFx(document.querySelector('.grid'), {
+					imgPosition : {
+						x : -0.5,
+						y : 1
+					},
+					onOpenItem : function(instance, item) {
+						instance.items.forEach(function(el) {
+							if(item != el) {
+								var delay = Math.floor(Math.random() * 50);
+								el.style.WebkitTransition = 'opacity .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1), -webkit-transform .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1)';
+								el.style.transition = 'opacity .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1), transform .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1)';
+								el.style.WebkitTransform = 'scale3d(0.1,0.1,1)';
+								el.style.transform = 'scale3d(0.1,0.1,1)';
+								el.style.opacity = 0;
+							}
+						});
+					},
+					onCloseItem : function(instance, item) {
+						instance.items.forEach(function(el) {
+							if(item != el) {
+								el.style.WebkitTransition = 'opacity .4s, -webkit-transform .4s';
+								el.style.transition = 'opacity .4s, transform .4s';
+								el.style.WebkitTransform = 'scale3d(1,1,1)';
+								el.style.transform = 'scale3d(1,1,1)';
+								el.style.opacity = 1;
+
+								onEndTransition(el, function() {
+									el.style.transition = 'none';
+									el.style.WebkitTransform = 'none';
+								});
+							}
+						});
+					}
+				});
+			})();</script>
+	</div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{LANGUAGE_CODE}}" xml:lang="{{LANGUAGE_CODE}}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+{% load i18n %}
+{% load static %}
+
+
+<head>
+	<title> Manufacture générale:studio de création et de production digitale </title>
+	<link rel="stylesheet" type="text/css" media="all" href="/static/css/style.css" />
+</head>
+
+
+<body>
+
+{% block content %}
+
+<div id="content">
+	<h1> Les Artistes : </h1></br >
+
+	    {% for artiste in object_list %}
+
+		<p>{{ artiste.prenom_artiste }} 
+		{{ artiste.nom_artiste }}</br ></br ></p>
+
+		<img src="{{ artiste.url_image.url }}" alt="{{ artiste.url_image }}" style="width:300px;height:350px;">
+
+		<p><a href="http://127.0.0.1:8000/artiste/{{artiste.pk}}">En savoir plus</a>
+
+		</br ></br ></br ></br >
+	    {% endfor %}
+
+</div>
+{% endblock %}
+
+{% block footer %}
+<div id="footer">
+	<ul class='listAcc'>
+	    <li><a href="http://127.0.0.1:8000/oeuvre/"> Liste Oeuvres </a></li>
+	    <li><a href="http://127.0.0.1:8000/artiste/"> Liste Artistes </a></li>
+	    <li><a href="http://127.0.0.1:8000/"> Retour Accueil </a></li>
+	<ul>
+</div>{% endblock %}
